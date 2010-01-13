@@ -1,6 +1,34 @@
 // section: Array.prototype
 // desc: Additions to the array prototype. 
 
+// func: indexOf(element, from)
+// desc: Implementation of indexOf for platforms that don't have it built in.
+// returns: Index of the specified element in an array. -1 if the item isn't in the array.
+(function () {
+	if (!'indexOf' in Array.prototype) {
+		Array.prototype.indexOf = function (element,from) {
+
+			var length = this.length;
+			var result = -1;
+
+			from = isDefined(from) ? from : 0;
+
+			if (from < 0) {
+				from += length;
+			}
+
+			this.each(function (currentElement,index) {
+				if (currentElement === element) {
+					result = index;
+					return false;
+				}
+			});
+
+			return result;
+		}
+	}
+})();
+
 // func: reduce(fn, current)
 // desc: Runs the function against all the items in the array sequentially.  Starting value can be specified optionally.
 // example: myArray.reduce(mySumFunc(a, b)) -> returns the sum of all items in myArray.
@@ -97,8 +125,8 @@ Array.prototype.any = function (fn) {
 // func: unique()
 // desc: Returns a new array with only unique values from the current array.
 Array.prototype.unique = function () {
-	return this.reduce(function (current, element) {
-		current.indexOf(element) === -1 && current.push(element);
+	return this.reduce(function (memo, element) {
+		memo.indexOf(element) === -1 && memo.push(element);
 	}, []);
 };
 

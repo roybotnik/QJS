@@ -1,9 +1,11 @@
-// test: Global.isArray
+console.log('Testing global.js');
+
+console.log('test: global isArray');
 if (!isArray([]) || isArray({'0': 0, '1': 1, length: 2})) {
 	throw 'isArray doesnt work';
 }
 
-// test: Global.toArray
+console.log('test: global toArray');
 (function (a,b,c,d) {
 	var args = toArray(arguments);
 	if (!isArray(args) || args[0] !== a || args[1] !== b) {
@@ -11,7 +13,7 @@ if (!isArray([]) || isArray({'0': 0, '1': 1, length: 2})) {
 	}
 })(1,2,3,4);
 
-// test: Global.each
+console.log('test: global each');
 (function () {
 	var sum = 0,
 		obj = {'0': 1, 'a': 2, 'z': 3, 'werwefa': 4};
@@ -37,17 +39,17 @@ if (!isArray([]) || isArray({'0': 0, '1': 1, length: 2})) {
 
 })();
 
-// test: Global.isUndefined
+console.log('test: global isUndefined');
 if (!isUndefined(undefined) || isUndefined(true)) {
 	throw 'isUndefined doesnt work';
 }
 
-// test: Global.isDefined
+console.log('test: global isDefined');
 if (isDefined(undefined) || !isDefined(true)) {
-	throw 'not doesnt work';
+	throw 'isDefined doesnt work';
 }
 
-// test: Global.map
+console.log('test: global map');
 (function () {
 	var obj = {
 		doIt: function (a) {return a * 2;}
@@ -61,7 +63,7 @@ if (isDefined(undefined) || !isDefined(true)) {
 	}
 })();
 
-// test: Global.absorb
+console.log('test: global absorb');
 (function () {
 	var a = {a: 1}, b = {b: 2}, ab = {};
 	result = absorb(ab,a,b);
@@ -70,7 +72,7 @@ if (isDefined(undefined) || !isDefined(true)) {
 	};
 })();
 
-// test: Global.object
+console.log('test: global object');
 (function () {
 	var obj = {
 		a: 1,
