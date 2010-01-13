@@ -125,9 +125,12 @@ Array.prototype.any = function (fn) {
 // func: unique()
 // desc: Returns a new array with only unique values from the current array.
 Array.prototype.unique = function () {
-	return this.reduce(function (memo, element) {
-		memo.indexOf(element) === -1 && memo.push(element);
-	}, []);
+	var uniques = [];
+	this.each(function(element)
+	{
+		uniques.indexOf(element) === -1 && uniques.push(element);
+	});
+	return uniques;
 };
 
 // func: removeAll(element)
