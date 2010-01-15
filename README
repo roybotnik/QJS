@@ -1,0 +1,11 @@
+QJS is a simple JavaScript framework designed for simplicity and speed.
+It is currently an active work in progress.
+
+All functions are fairly well tested.  Tests can be run by simply opening the runner.html for the particular
+library you would like to test, or by opening all.html to test all libraries.  
+
+To use:
+
+Include global.js first, then include any additional stuff you would like to use.
+
+I'll release fully-assembled builds when I get more useful features into the library.
